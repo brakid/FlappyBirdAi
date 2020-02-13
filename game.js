@@ -88,8 +88,5 @@ $(document).ready(function(){
   simulateGenerations(50);
   plotResults(results, pipesPassedResult);
 
-  //evaluateBestBirds();  
-  birdPopulation.population = bestBirds;
-  birdPopulation.population.forEach(bird => bird.reset());  
-  simulateAndDisplayGeneration(birdPopulation);
+  evaluateBestBirds();
 });
