@@ -7,8 +7,8 @@
 We develop an AI that learns to fly in a Flappy Bird like game. The AI is 'trained' using an [Evolutionary Algorithm](https://en.wikipedia.org/wiki/Evolutionary_algorithm). The idea is taken from biology: a set of randomly generated agents are evaluated via a fitness function. Then the best agents are selected for seeding the next generation: two agents 'mate' and create offspring that shares the traits of it's 'parents'. As in biology the aim is that the best agents give their information to the next generation and thus their 'children' become even better than the parents.
 
 In our setting, the agents are controlled by a 2-layer [feedforward network](https://en.wikipedia.org/wiki/Feedforward_neural_network). The input to the network consists of 5 dimensions: 
-* the distance if the birds fron to the next pipe
-* the distance of the backside if the bird to the backside of the next pipe (in case the bird is just crossing a pipe)
+* the distance of the bird's front to the next pipe
+* the distance of the backside of the bird to the farthest side of the next pipe (in case the bird is just crossing a pipe)
 * the distance to the top pipe (does the bird need to sink)
 * the distance to the bottom pipe (does the bird need to raise)
 * the vertical speed of the bird (does the bird raise or fall)
@@ -62,7 +62,7 @@ Over 50 generations, the agents become increasingly better: the first generation
 
 Our setting has a population of 100 agents per generation and the 10 best are chosen as parents for the next generation.
 
-**The final generation of birds finally is able to master Flappy Birds!**
+**The final generation of birds finally is able to master Flappy Birds!** We created *Order From Chaos*, completely randomly selected weights were modified into such weigths that steer the bird through the pipes.
 
 <p align="center">
     <img src="analysis/finalGeneration.gif" alt="Final Generation" />
@@ -70,7 +70,8 @@ Our setting has a population of 100 agents per generation and the 10 best are ch
 
 ## Future plans:
 * try other approaches to create the weights of offspring: 
-  * crossing-over
+  * crossing-over instead of random combination
+  * evolving the structure of the Neural Network as well instead of using a fixed topology (e.g using [NEAT](https://de.wikipedia.org/wiki/NeuroEvolution_of_Augmented_Topologies))
   * limiting mutations to x% of the weights instead of all
 * change parameters of the model to make the evolution more stable, in the current setting there can be cases where no good agents evolve
 * compare the evolutionary algorithm to a [Q-learning approach](https://towardsdatascience.com/a-beginners-guide-to-q-learning-c3e2a30a653c). Q-learning uses Stochastic Gradient to change the weights of the neural network which is a more direct approach compared to the random mutations.
