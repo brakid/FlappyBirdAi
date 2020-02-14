@@ -7,10 +7,10 @@
 We develop an AI that learns to fly in a Flappy Bird like game. The AI is 'trained' using an [Evolutionary Algorithm](https://en.wikipedia.org/wiki/Evolutionary_algorithm). The idea is taken from biology: a set of randomly generated agents are evaluated via a fitness function. Then the best agents are selected for seeding the next generation: two agents 'mate' and create offspring that shares the traits of it's 'parents'. As in biology the aim is that the best agents give their information to the next generation and thus their 'children' become even better than the parents.
 
 In our setting, the agents are controlled by a 2-layer [feedforward network](https://en.wikipedia.org/wiki/Feedforward_neural_network). The input to the network consists of 5 dimensions: 
-* the distance of the bird's front to the next pipe
+* <span style="color:orange">the distance of the bird's front to the next pipe</span>
 * the distance of the backside of the bird to the farthest side of the next pipe (in case the bird is just crossing a pipe)
-* the distance to the top pipe (does the bird need to sink)
-* the distance to the bottom pipe (does the bird need to raise)
+* <span style="color:red">the distance to the top pipe (does the bird need to sink)</span>
+* <span style="color:blue">the distance to the bottom pipe (does the bird need to raise)</span>
 * the vertical speed of the bird (does the bird raise or fall)
 
 <p align="center">
